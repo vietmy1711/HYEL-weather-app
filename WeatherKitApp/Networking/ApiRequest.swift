@@ -10,6 +10,7 @@ import Foundation
 enum ErrorType {
     case fetchingNoInternet
     case fetchingUnknown
+    case unauthorized
     
     var errorTitle: String {
         switch self {
@@ -24,6 +25,8 @@ enum ErrorType {
             return "No internet connection. Please connect and try again"
         case .fetchingUnknown:
             return "Something went wrong. Please try again"
+        case .unauthorized:
+            return "If you see this, maybe you forgot to add your AUTH_TOKEN or your AUTH_TOKEN is expired, please add your AUTH_TOKEN at build Scheme environment variable"
         }
     }
 }
@@ -57,6 +60,13 @@ class ApiRequest {
         print("Making request to: \(String(describing: components.url))")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
+                if let httpResponse = response as? HTTPURLResponse {
+                    if (httpResponse.statusCode == 403) {
+                        completionHandler(nil, .unauthorized, error)
+                        return
+                    }
+                }
+
                 completionHandler(nil, .fetchingUnknown, error)
                 return
             }

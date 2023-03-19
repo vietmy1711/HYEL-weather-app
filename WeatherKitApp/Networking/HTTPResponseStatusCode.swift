@@ -12,5 +12,6 @@ enum HTTPResponseStatusCode: Int {
     case unknown                        = 0
     case ok                             = 200
     case badRequest                     = 400
+    case unauthorize                    = 403
     case notFound                       = 404
 }

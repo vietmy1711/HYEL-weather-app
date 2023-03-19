@@ -24,6 +24,22 @@ class WeatherRepository: ObservableObject {
             do {
                 let jsonDecoder = JSONDecoder()
                 let weatherModel = try jsonDecoder.decode(WeatherModel.self, from: data)
+                if (weatherModel.forecastHourly == nil && weatherModel.currentWeather == nil && weatherModel.forecastDaily == nil) {
+                    // We don't get an error code from our response status code, we have to decode this
+                    if let errorModel = try? jsonDecoder.decode(ApiErrorModel.self, from: data) {
+                        switch errorModel.status {
+                        case HTTPResponseStatusCode.unauthorize.rawValue:
+                            completionHandler(nil, .unauthorized)
+                        default:
+                            completionHandler(nil, .fetchingUnknown)
+                        }
+                        print("Status: \(errorModel.status ?? -1) Error: \(errorModel.error ?? "Unknown") Path: \(errorModel.path ?? "Unknown")")
+                        return
+                    }
+                    
+                    completionHandler(nil, errType)
+                    return
+                }
                 AppCache.shared.setWeatherModel(weatherModel)
                 completionHandler(weatherModel, errType)
             } catch let parsingError {

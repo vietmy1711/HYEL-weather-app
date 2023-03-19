@@ -33,6 +33,7 @@
 		461F142229C74D90007B6317 /* WeatherHourlyBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461F142129C74D90007B6317 /* WeatherHourlyBottomSheet.swift */; };
 		461F142429C74EAC007B6317 /* HourlyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461F142329C74EAC007B6317 /* HourlyViewModel.swift */; };
 		461F142629C75246007B6317 /* WeatherHourlyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461F142529C75246007B6317 /* WeatherHourlyItemView.swift */; };
+		461F142829C76B2B007B6317 /* ApiErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461F142729C76B2B007B6317 /* ApiErrorModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		461F142129C74D90007B6317 /* WeatherHourlyBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHourlyBottomSheet.swift; sourceTree = "<group>"; };
 		461F142329C74EAC007B6317 /* HourlyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyViewModel.swift; sourceTree = "<group>"; };
 		461F142529C75246007B6317 /* WeatherHourlyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHourlyItemView.swift; sourceTree = "<group>"; };
+		461F142729C76B2B007B6317 /* ApiErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				461F140929C7043A007B6317 /* WeatherModel.swift */,
+				461F142729C76B2B007B6317 /* ApiErrorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				461F141829C726BD007B6317 /* String+Extension.swift in Sources */,
 				461F140E29C70818007B6317 /* ApiRequest.swift in Sources */,
 				461F13FF29C6F9F2007B6317 /* WeatherRepository.swift in Sources */,
+				461F142829C76B2B007B6317 /* ApiErrorModel.swift in Sources */,
 				461F142229C74D90007B6317 /* WeatherHourlyBottomSheet.swift in Sources */,
 				461F141629C726A6007B6317 /* Data+Extension.swift in Sources */,
 				461F13FC29C6F992007B6317 /* NetworkManager.swift in Sources */,

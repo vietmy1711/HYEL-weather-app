@@ -22,7 +22,7 @@ class AppCache {
         return nil
     }
     
-    func setWeatherModel(_ model: WeatherModel) {
+    func setWeatherModel(_ model: WeatherModel?) {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(model) {
             let defaults = UserDefaults.standard
