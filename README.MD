@@ -6,7 +6,7 @@
 An iOS app written in Swift using SwiftUI that fetch data from the [WeatherKit Rest API](https://developer.apple.com/documentation/weatherkitrestapi/get_api_v1_weather_language_latitude_longitude) to show Weather Data. This is an assignment project with minimal required features:
 
 - [x] Implement using Swift and SwiftUI
-- [x] Fetch weather from the [Weathe Kit Rest API](https://developer.apple.com/documentation/weatherkitrestapi/get_api_v1_weather_language_latitude_longitude) with hourly and daily datasets
+- [x] Fetch weather from the [Weather Kit Rest API](https://developer.apple.com/documentation/weatherkitrestapi/get_api_v1_weather_language_latitude_longitude) with hourly and daily datasets
 
 ## App Architecture
 
