@@ -1,5 +1,5 @@
 //
-//  WeatherKitAppApp.swift
+//  WeatherKitApp.swift
 //  WeatherKitApp
 //
 //  Created by GJ376GXGQ0 on 19/03/2023.
@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct WeatherKitAppApp: App {
+struct WeatherKitApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
