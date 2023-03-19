@@ -36,7 +36,13 @@ struct HomeView: View {
                                 Text("10-Day Forecast").foregroundColor(.white).font(.caption).bold()
                                 Spacer()
                             }
-                            WeatherDailyView(weekDay: "Today", iconName: weatherViewModel.weatherModel?.forecastDaily?.days?.first?.conditionCode, tempHigh: weatherViewModel.weatherModel?.forecastDaily?.days?.first?.temperatureMax, tempLow: weatherViewModel.weatherModel?.forecastDaily?.days?.first?.temperatureMin)
+                            WeatherDailyView(weekDay: "Today", iconName: weatherViewModel.weatherModel?.forecastDaily?.days?.first?.conditionCode, tempHigh: weatherViewModel.weatherModel?.forecastDaily?.days?.first?.temperatureMax, tempLow: weatherViewModel.weatherModel?.forecastDaily?.days?.first?.temperatureMin).onTapGesture {
+                                guard let day = weatherViewModel.weatherModel?.forecastDaily?.days?.first else { return }
+                                guard let lat = weatherViewModel.weatherModel?.currentWeather?.metadata?.latitude else { return }
+                                guard let lon = weatherViewModel.weatherModel?.currentWeather?.metadata?.longitude else { return }
+
+                                weatherViewModel.weekDayClicked(lat: lat, lon: lon, day: day)
+                            }
                             if weatherViewModel.weatherModel?.forecastDaily?.days?.count ?? 0 >= 10 {
                                 ForEach(1..<10) { i in
                                     WeatherDailyView(weekDay: weatherViewModel.weatherModel?.forecastDaily?.days?[i].forecastStart?.getDate()?.getWeekDay(), iconName: weatherViewModel.weatherModel?.forecastDaily?.days?[i].conditionCode?.getNameImageWeather(), tempHigh: weatherViewModel.weatherModel?.forecastDaily?.days?[i].temperatureMax, tempLow: weatherViewModel.weatherModel?.forecastDaily?.days?[i].temperatureMin).onTapGesture {
