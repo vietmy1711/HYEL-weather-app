@@ -11,6 +11,7 @@ import Foundation
 struct WeatherModel: Codable {
     let forecastDaily: ForecastDaily?
     let currentWeather: CurrentWeather?
+    let forecastHourly: ForecastHourly?
 }
 
 // MARK: - ForecastDaily
@@ -45,3 +46,20 @@ struct CurrentWeather: Codable {
     let conditionCode: String?
     let temperature: Double?
 }
+
+// MARK: - ForecastHourly
+struct ForecastHourly: Codable {
+    let name: String?
+    let metadata: Metadata?
+    let hours: [Hour]?
+}
+
+// MARK: - Hour
+struct Hour: Codable {
+    let forecastStart: String?
+    let conditionCode: String?
+    let temperature: Double?
+
+}
+
+
