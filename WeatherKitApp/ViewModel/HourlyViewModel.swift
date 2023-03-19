@@ -23,6 +23,7 @@ class HourlyViewModel: ObservableObject {
         
     func getWeatherHourly(lat: CLLocationDegrees, lon: CLLocationDegrees, day: Day) {
         isLoading = true
+        error = nil
         repository.getWeatherHourly(lat: lat, lon: lon, day: day) { [weak self] fetchedWeather, errType in
             guard let strongSelf = self else { return }
             DispatchQueue.main.async { [weak strongSelf] in

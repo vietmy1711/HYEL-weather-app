@@ -24,6 +24,7 @@ class WeatherViewModel: ObservableObject {
     
     func getWeatherDaily(lat: CLLocationDegrees, lon: CLLocationDegrees) {
         isLoading = true
+        error = nil
         repository.getWeatherDaily(lat: lat, lon: lon) { [weak self] fetchedWeather, errType in
             guard let strongSelf = self else { return }
             DispatchQueue.main.async { [weak strongSelf] in

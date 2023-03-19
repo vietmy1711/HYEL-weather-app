@@ -45,7 +45,7 @@ class WeatherRepository: ObservableObject {
             } catch let parsingError {
                 print("Error: \(parsingError)")
                 if let model = AppCache.shared.getWeatherModel() {
-                    completionHandler(model, errType)
+                    completionHandler(model, errType ?? .fetchingUnknown)
                     return
                 }
                 completionHandler(nil, errType)
