@@ -10,8 +10,10 @@ import CoreLocation
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
+    
     @Published var location: CLLocationCoordinate2D?
     @Published var isLocationServiceApproved = false
+    
     override init() {
         super.init()
         manager.delegate = self
